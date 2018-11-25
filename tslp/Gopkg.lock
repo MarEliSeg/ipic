@@ -3,13 +3,15 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:b5dfeddc02b13041ecb0041d028c5f2c4a6e780168e8da899c4432c21e1e3654"
   name = "github.com/aeden/traceroute"
   packages = ["."]
+  pruneopts = "UT"
   revision = "147686d9cb0fd32a2e577e94fbd3d0e9bd3a24d2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7cca48f18c549d536a67ae0bd8ab25834524fe9d90b46c3a7b06b4ede38add0b"
+  input-imports = ["github.com/aeden/traceroute"]
   solver-name = "gps-cdcl"
   solver-version = 1
