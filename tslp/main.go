@@ -52,12 +52,16 @@ func main() {
 	}
 	err = linkFile.Close()
 	check(err)
-
-	//Messzeit, die zwei Zeiten, Diff, Adressen, success? -1 bei den Zeiten falls false
-	res, err := traceroute.Traceroute(linkList[0].Dest, &linkList[0].Options)
-	check(err)
-	fmt.Println(res)
-	saveResults(linkList[0], res)
+	
+	t := time.NewTicker(time.Minute)
+	for {
+		for _, link := range linkList {
+			res, err := traceroute.Traceroute(link.Dest, &link.Options)
+			check(err)
+			saveResults(link, res)
+		}
+		<- t.C
+	}
 
 }
 
@@ -88,9 +92,9 @@ func saveResults(link Link, res traceroute.TracerouteResult) {
 	} else {
 		line[5] = "-1"
 	}
-	fmt.Println(line)
 
 	w := csv.NewWriter(f)
+	w.Comma = ';'
 	err = w.Write(line[:])
 	check(err)
 	w.Flush()
