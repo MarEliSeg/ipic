@@ -1,0 +1,82 @@
+owner 6805 (first)
+62.53.0.4*
+ 133248 ???? traceset 62.53.0.11*
+
+owner 6805 (first,merged)
+62.53.0.13*
+62.53.0.29*
+ 3257 ???? onenet2 62.53.13.223*
+
+owner 6805 (first,merged)
+62.53.0.127*
+62.53.25.254*
+ 3257 ???? onenet2 62.53.2.57*
+ 12956 prov onenet2 62.53.8.187*
+ 63555 ???? noip2as 62.53.10.51*
+
+owner 6805 (first,merged)
+62.53.0.143*
+62.53.26.0*
+ 3257 ???? onenet2 62.53.2.59*
+ 12956 prov onenet2 62.53.8.189*
+
+owner 6805 (first)
+62.53.3.148*
+ 201011 ???? onenet2 62.52.230.197*
+
+owner 6805 (ixp)
+62.53.9.53*
+ 24989 ???? traceset 80.81.192.234*
+ 31060 ???? traceset 80.81.194.84*
+ 50368 ???? traceset 80.81.192.77*
+ 136840 ???? traceset 80.81.192.50*
+
+owner 6805 (ixp,merged)
+62.53.11.125*
+62.53.11.127*
+ 8220 peer onenet2 193.178.185.56*
+ 9002 peer count 193.178.185.64*
+ 12741 ???? onenet2 193.178.185.46*
+ 206028 ???? traceset 194.9.117.72*
+
+owner 6805 (first)
+62.53.13.62*
+ 8468 peer silent
+
+owner 6805 (first)
+62.53.13.64*
+ 8925 cust silent
+
+owner 6805 (first)
+62.53.13.66*
+ 31019 peer silent
+
+owner 6805 (ixp,merged)
+62.53.13.83*
+62.53.13.85*
+ 5539 ???? traceset 194.59.190.7*
+ 6939 peer onenet2 194.59.190.69*
+ 19281 ???? traceset 194.59.190.35*
+ 25115 ???? thirdparty2 194.59.190.17*
+
+owner 6805 (first)
+62.53.16.30*
+ 8648 ???? traceset 62.53.8.219*
+
+owner 6805 (first)
+62.53.16.34*
+ 48572 ???? traceset 62.53.8.221*
+
+owner 6805 (first)
+62.53.18.159*
+ 8492 peer silent
+
+owner 6805 (ixp,merged)
+62.53.19.144*
+62.53.19.146*
+ 2914 peer onenet2 62.69.146.85*
+ 13237 peer onenet2 62.69.146.54*
+ 35329 ???? thirdparty2 62.69.146.99*
+ 48526 peer silent
+
+60/245 owned
