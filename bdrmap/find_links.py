@@ -9,7 +9,7 @@ TRACES='./bdrmap.json'
 BDR_OUT='./bdrmap.out'
 OUTFILE='./links.csv'
 
-routers = []
+routers = {}
 links = defaultdict(list)
 
 with open(BDR_OUT) as in_file:
@@ -18,10 +18,11 @@ with open(BDR_OUT) as in_file:
             continue
         if 'silent' in line:
             continue
-
         meta = re.search('(\d+\.\d+\.\d+\.\d+)\*\n$', line)
         ip = meta.group(1)
-        routers.append(ip)
+        meta = re.search('^\s(\d+)', line)
+        asn = meta.group(1)
+        routers[ip] = asn
 
 with open(TRACES) as traces:
     for trace in traces:
@@ -31,11 +32,11 @@ with open(TRACES) as traces:
         if not 'hops' in obj:
             continue
         for hop in obj['hops']:
-            for router in routers:
+            for router in routers.keys():
                 if hop['addr'] == router:
                     links[router].append((obj['dst'], int(hop['probe_ttl'])))
 
 with open(OUTFILE, 'w', newline='') as link_file:
     writer = csv.writer(link_file, delimiter=';')
-    for targets in links.values():
-        writer.writerow([targets[0][0], targets[0][1]-1, targets[0][1]])
+    for router, targets in links.items():
+        writer.writerow([targets[0][0], targets[0][1]-1, targets[0][1], router, routers[router]])
