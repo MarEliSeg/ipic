@@ -10,10 +10,12 @@ for filename in glob.iglob('../tslp/res-*.csv'):
                 names=['timestamp', 'ip1', 'ip2', 'time1', 'time2', 'diff'],
                 index_col='timestamp')
     data.index = pd.to_datetime(data.index, unit='s')
+    data = data.loc[data.index > '2018-12-05T04:00:00']
 
     plt.figure()
     ax = data.plot(linestyle='', marker='.', markersize=2,
                 y=['time1', 'time2'],
+                ylim=(0, 80),
                 label=['near end', 'far end'],
                 color=['green', 'red'])
     ax.set_xlabel('time')
