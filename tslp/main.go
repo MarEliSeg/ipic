@@ -66,6 +66,9 @@ func main() {
 }
 
 func saveResults(link Link, res traceroute.TracerouteResult) {
+	if len(res.Hops) < 2 {
+		return
+	}
 	fName := fmt.Sprintf("res-%s.csv", link.Dest)
 	f, err := os.OpenFile(fName, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	check(err)
